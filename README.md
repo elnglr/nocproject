@@ -111,8 +111,6 @@ Potential extensions and alternative approaches include:
 
 - **Serkan Basaran**  
 - **Helin Geleri**  
-- **Muhammet Emre Eren**
-
 ---
 
 ## 🏫 Course Information
