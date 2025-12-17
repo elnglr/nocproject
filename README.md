@@ -1,60 +1,124 @@
-# Differential Mobile Robot Trajectory Optimization
+# Optimal Trajectory Tracking with Obstacle Avoidance  
+### for Differential Mobile Robots
 
-This repository explores optimization methods for differential mobile robots, focusing on trajectory planning and obstacle avoidance. The codebase is primarily written in MATLAB and includes additional functionality for analysis and simulation.
+This repository contains the implementation and experiments for the project **“Optimal Trajectory Tracking with Obstacle Avoidance for Differential Mobile Robots”**, developed as part of the **Numerical Optimization for Control** course.
 
-## Description
+The work focuses on **Model Predictive Control (MPC)** with advanced constraint handling techniques for **static and dynamic obstacle avoidance**, including **Control Barrier Functions (CBFs)**.
 
-This project is based on the work of Dhaouadi & Hatab (2013) – "Dynamic Modelling of Differential-Drive Mobile Robots." It provides algorithms and functions to model, simulate, and optimize the motion of differential mobile robots in dynamic environments with constraints.
+---
 
-## Table of Contents
+## 📌 Project Overview
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [File Organization](#file-organization)
-- [Methodology](#methodology)
-- [License](#license)
+Autonomous mobile robots operating in real-world environments must track reference trajectories while safely avoiding obstacles. This project addresses this challenge using an MPC-based framework that:
 
-## Installation
+- Handles **trajectory tracking**
+- Avoids **static and dynamic obstacles**
+- Ensures **constraint satisfaction**
+- Improves numerical stability and feasibility
 
-1. Clone the repository:
+The robot model considered is a **differential-drive mobile robot**.
 
-   ```bash
-   git clone https://github.com/elnglr/nocproject.git
-   cd nocproject
-   ```
+---
 
-2. Ensure MATLAB (preferably R2021b or later) is installed on your system.
+## 🚀 Key Improvements Over Baseline
 
-## Usage
+Compared to previous implementations, this project introduces several important enhancements:
 
-1. Navigate the project folder.
-2. Use MATLAB to run `.m` files for specific tasks.
+- ✅ Support for **multiple types of static and dynamic obstacles**
+- ✅ Removal of **barrier functions from the cost**, leading to a **well-posed constrained optimization problem**
+- ✅ **Linearization of static obstacle constraints** for improved computational efficiency
+- ✅ **Control Barrier Function (CBF)** formulation for **dynamic obstacle avoidance**
+- ✅ Experiments with **Multiple Shooting** MPC formulation
+- ✅ Addition of an **artificial LiDAR range sensor** for environment perception
 
-   Example:
-   ```matlab
-   run animate_ddrive_mixedobs.m
-   ```
+---
 
-3. Explore different scripts in the `DDMR_Functions` directory to understand robot dynamics.
+## 🧠 Methodology
 
-## File Organization
+### Model Predictive Control (MPC)
 
-- **Main Files**:
-  - `Constrained.m`: Implements constrained motion models.
-  - `animate_ddrive_mixedobs.m`: Creates simulations for obstacle interactions.
-  - `update_dynamic_obstacles.m`, etc.
+- Finite-horizon optimization
+- Constraints enforced directly in the optimization problem
+- Receding horizon strategy
+- Differential-drive robot dynamics
 
-- **Directories**:
-  - `DDMR_Functions`: Contains utility functions for differential-drive modeling.
-  - `comparison`: Numeric performance results across methods.
+---
 
-## Methodology
+### Obstacle Modeling
 
-Optimization relies on combining control barrier functions **`CBFS modeling` simultaneous enhancing steering control**.
+#### Circular Obstacles
+- Modeled using distance-based constraints
+- Constraints are **linearized** around the predicted trajectory
 
-**Dynamic Optimization:** Why sophisticated_signal non-linear encourage
-fields?
+#### Rectangular Obstacles
+- Approximated using **ellipses**
+- Elliptical constraints are linearized to maintain convexity
 
-## License
+---
 
-Discredivence_optional attach exact differentiation license
+### Dynamic Obstacle Avoidance
+
+Dynamic obstacles are handled using **Control Barrier Functions (CBFs)**:
+
+- **Continuous-time CBF formulation**
+- **Discrete-time CBF constraints** embedded into MPC
+- Guarantees **forward invariance** of safe sets
+- Ensures collision avoidance even with moving obstacles
+
+---
+
+## 🌍 Environments
+
+- Static-only environments
+- Dynamic obstacle environments
+- Mixed environments with both static and dynamic obstacles
+- Comparative evaluation against previous environments
+
+---
+
+## 📊 Results & Conclusions
+
+- The proposed MPC + CBF framework successfully avoids both static and dynamic obstacles
+- Linearized constraints improve solver performance
+- Removing barrier terms from the cost improves numerical robustness
+- CBF-based dynamic obstacle handling ensures safety without overly conservative behavior
+
+---
+
+## 🔄 Alternative & Future Methods
+
+Potential extensions and alternative approaches include:
+
+- Treating **CBF parameters as optimization variables**
+- Using **feedback linearization** or low-level torque controllers
+- **ORCA-based methods** for multi-robot and dense dynamic environments
+- **Artificial Potential Fields (APF)** for local planning
+- **RRT-based planners** for global path planning in fully explored maps
+
+---
+
+## 📚 References
+
+- Ames et al., *Control Barrier Functions: Theory and Applications*, ECC 2019  
+- Jian et al., *Dynamic CBF-based MPC for Safety-Critical Obstacle Avoidance*, ICRA 2023  
+- Yoon et al., *Model-Predictive Active Steering and Obstacle Avoidance*, Control Engineering Practice, 2009  
+- Xiong et al., *Discrete-Time Control Barrier Functions*, IEEE Transactions on Cybernetics, 2023  
+- Ali et al., *Linear MPC with CBFs for Differential Drive Robots*, arXiv 2024
+
+---
+
+## 👥 Authors
+
+- **Serkan Basaran**  
+- **Helin Geleri**  
+- **Muhammet Emre Eren**
+
+---
+
+## 🏫 Course Information
+
+**Numerical Optimization for Control**  
+Instructor: **Prof. Lorenzo Mario Fagiano**
+
+---
+
