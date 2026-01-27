@@ -109,8 +109,7 @@ Potential extensions and alternative approaches include:
 
 ## 👥 Authors
 
-- **Serkan Basaran**  
-- **Helin Geleri**  
+- **SB, HG EE**   
 ---
 
 ## 🏫 Course Information
