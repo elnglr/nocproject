@@ -17,7 +17,7 @@ Autonomous mobile robots operating in real-world environments must track referen
 - Improves numerical stability and feasibility
 
 The robot model considered is a **differential-drive mobile robot**.
-
+![First Edition](images/first_edition.gif)
 ---
 
 ## 🚀 Key Improvements Over Baseline
