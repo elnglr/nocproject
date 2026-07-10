@@ -32,10 +32,10 @@ Compared to previous implementations, this project introduces several important 
 - ✅ Addition of an **artificial LiDAR range sensor** for environment perception
 
 Robot with only circular obstacles:
-(images/only_circular_obstacle.gif)
+![Only Circular](images/only_circular_obstacle.gif)
 
 Robot with both rectangular and circular obstacles:
-(images/both_circular_rectangular.gif)
+![Both ways](images/both_circular_rectangular.gif)
 ---
 
 ## 🧠 Methodology
